@@ -18,6 +18,7 @@ public class MovementTest : MonoBehaviour
     void Update()
     {
         this.transform.position += moveDirection * speed * Time.deltaTime;
+        // this.transform.Translate(moveDirection * speed * Time.deltaTime);
         // multiplying by Time.deltatime makes it per second instead of per frame!
     }
 }

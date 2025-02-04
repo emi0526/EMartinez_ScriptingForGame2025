@@ -21,7 +21,7 @@ public class AngryBirdIfier : MonoBehaviour
             scaleIncrease -= Time.deltaTime / 5;
         }
       
-        if (rotateamount > 0)
+        if (rotateamount > 0f)
         {
             rotateamount -= Time.deltaTime;
         }

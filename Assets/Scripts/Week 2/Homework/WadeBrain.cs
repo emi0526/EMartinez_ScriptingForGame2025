@@ -6,16 +6,25 @@ public class WadeBrain : MonoBehaviour
     public GameObject WADE;
     public GearTurner gear;
     public float PAIN;
+    public float temp;
     public float rotateamount;
+    public FlamScript flams;
+    public Animator anim;
     
     void Start()
     {
-        
+        temp = 0.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Blend", temp/5);
+        if (flams.tog.isOn == true)
+        {
+            temp += flams.intnsity * Time.deltaTime/10;
+        }
+        temp -= gear.rotateamount / 2 * Time.deltaTime/10;
         if (PAIN < 15)
         {
             PAIN += gear.rotateamount * Time.deltaTime * 5;

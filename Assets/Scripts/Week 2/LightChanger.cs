@@ -46,6 +46,32 @@ public class LightChanger : MonoBehaviour
     public void ChangeLightColor(Color santa)
     {
         lightWeWantToChange.color = santa;
+
+        if(lightWeWantToChange.color == Color.green)
+        {
+            lightWeWantToChange.intensity = 100f;
+        }
+        else if (lightWeWantToChange.color == Color.red)
+        {
+            lightWeWantToChange.transform.position += Vector3.right * 3;
+        }
+        else if (lightWeWantToChange.color == Color.blue)
+        {
+            lightWeWantToChange.gameObject.SetActive(false);
+        }
+        else
+        {
+            lightWeWantToChange.transform.position = Vector3.zero; 
+        }
+
+        if(lightWeWantToChange.color == Color.green || lightWeWantToChange.color == Color.red)
+        {
+
+        }
+        if(lightWeWantToChange.color == Color.blue && lightWeWantToChange.intensity >50f)
+        {
+
+        }
     }    
     private void OnEnable()
     {

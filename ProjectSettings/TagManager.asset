@@ -8,6 +8,8 @@ TagManager:
   - NotCoolGuy
   - OkayGuy
   - Cannonball
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX

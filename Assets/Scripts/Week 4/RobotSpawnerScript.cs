@@ -48,9 +48,10 @@ public class RobotSpawnerScript : MonoBehaviour
     {
         explodetimer = 25;
         active = false;
+        robots = FindObjectsByType<ExplodingRobot>(FindObjectsSortMode.None).ToList();
         for (int i = 0; i < robots.Count; i++)
         {
-            robots = FindObjectsByType<ExplodingRobot>(FindObjectsSortMode.None).ToList();
+            
             robots[i].Finale();
 
         }

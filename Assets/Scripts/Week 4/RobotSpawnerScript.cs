@@ -8,13 +8,15 @@ public class RobotSpawnerScript : MonoBehaviour
     public int RobotStartAmount;
     public int RobotCurrentAmount;
     public float explodetimer;
+    public bool active;
     public List<ExplodingRobot> robots = new List<ExplodingRobot>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RobotStartAmount = Random.Range(20, 40);
         RobotCurrentAmount = RobotStartAmount;
-        explodetimer = 25;
+        explodetimer = 15;
+        active = true;
     }
 
     // Update is called once per frame
@@ -37,9 +39,20 @@ public class RobotSpawnerScript : MonoBehaviour
             robots = FindObjectsByType<ExplodingRobot>(FindObjectsSortMode.None).ToList();
             explodetimer = Random.Range(5, 15);
         }
-        else
+        else if (active == true)
         {
             explodetimer -= Time.deltaTime;
+        }
+    }
+    public void ExplodeAll()
+    {
+        explodetimer = 25;
+        active = false;
+        for (int i = 0; i < robots.Count; i++)
+        {
+            robots = FindObjectsByType<ExplodingRobot>(FindObjectsSortMode.None).ToList();
+            robots[i].Finale();
+
         }
     }
 }
